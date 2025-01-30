@@ -62,6 +62,9 @@ void AportfolioCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInput
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &ACharacter::Jump);
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 
+		//Interact
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &AportfolioCharacter::Interact);
+
 		// Moving
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AportfolioCharacter::Move);
 
@@ -74,6 +77,13 @@ void AportfolioCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInput
 	}
 }
 
+void AportfolioCharacter::Interact(const FInputActionValue& Value)
+{
+	if (Value.IsNonZero())
+	{
+		//TODO: research
+	}
+}
 
 void AportfolioCharacter::Move(const FInputActionValue& Value)
 {
